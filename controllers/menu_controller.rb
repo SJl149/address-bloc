@@ -13,7 +13,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - The Nuclear Option (delet all entries)"
+    puts "6 - Exit"
 
     selection = gets.to_i
 
@@ -35,6 +36,10 @@ class MenuController
         read_csv
         main_menu
       when 5
+        system "clear"
+        nuclear_option
+        main_menu
+      when 6
         puts "Good-bye!"
         exit(0)
       else
@@ -132,6 +137,17 @@ class MenuController
   def delete_entry(entry)
     address_book.entries.delete(entry)
     puts "#{entry.name} has been deleted"
+  end
+
+  def nuclear_option
+    puts "Are you sure you want to use the nuclear option? (Y/N)"
+    option = gets.chomp
+    if option == "Y"
+      address_book.entries.clear
+      puts "The address book has been obliterated!"
+    else
+      system "clear"
+    end
   end
 
   def edit_entry(entry)
