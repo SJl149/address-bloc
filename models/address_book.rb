@@ -47,4 +47,16 @@ require "csv"
 
       return nil
     end
+
+    # Search AddressBook for a specific entry by name using an iterative search
+    def iterative_search(name)
+      i = 0
+      while i < entries.length do
+        if name == entries[i].name
+          return entries[i]
+        end
+        i += 1
+      end
+      return nil
+    end
   end
