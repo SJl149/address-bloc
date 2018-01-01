@@ -57,7 +57,7 @@ class MenuController
 
   def create_entry
     system "clear"
-    puts "New AddressBloc Entry"
+    puts "New AddressBK Entry"
     print "Name: "
     name = gets.chomp
     print "Phone number: "
